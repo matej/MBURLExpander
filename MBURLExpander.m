@@ -179,15 +179,9 @@ static MBURLExpander *sharedExpander = nil;
 				callback(extractedURL, nil);
 			});
 		} else {
-			if (error) {
-				dispatch_async(dispatch_get_main_queue(), ^{
-					callback(nil, error);
-				});
-			} else {
-				dispatch_async(dispatch_get_main_queue(), ^{
-					callback(nil, nil);
-				});
-			}
+			dispatch_async(dispatch_get_main_queue(), ^{
+				callback(nil, error);
+			});
 		}
 
 	});
